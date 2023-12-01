@@ -1,6 +1,6 @@
 fn compute(secret: &str, answer: &u64, take: usize) -> bool {
-    let input = format!("{}{}", secret, answer.to_string());
-    let digest = md5::compute(&input);
+    let input = format!("{}{}", secret, answer);
+    let digest = md5::compute(input);
     let digest = format!("{:x}", digest).chars().take(take).all(|c| c == '0');
     digest
 }
